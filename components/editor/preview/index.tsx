@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import classNames from "classnames";
 import { toast } from "sonner";
 
-import { cn } from "@/lib/utils";
+import { cn, injectNavigationHandler } from "@/lib/utils";
 import { GridPattern } from "@/components/magic-ui/grid-pattern";
 import { htmlTagToText } from "@/lib/html-tag-to-text";
 
@@ -160,7 +160,7 @@ export const Preview = ({
               currentTab !== "preview" && device === "desktop",
           }
         )}
-        srcDoc={html}
+        srcDoc={injectNavigationHandler(html)}
         onLoad={() => {
           if (iframeRef?.current?.contentWindow?.document?.body) {
             iframeRef.current.contentWindow.document.body.scrollIntoView({
