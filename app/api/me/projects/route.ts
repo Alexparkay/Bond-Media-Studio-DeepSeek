@@ -97,7 +97,7 @@ tags:
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference`;
 
-    newHtml = html.replace(/<\/body>/, `${getPTag(repo.name)}</body>`);
+    newHtml = html.replace(/<\/body>/, `${getPTag()}</body>`);
     const file = new File([newHtml], "index.html", { type: "text/html" });
     const readmeFile = new File([readme], "README.md", {
       type: "text/markdown",

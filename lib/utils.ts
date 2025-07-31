@@ -15,6 +15,6 @@ export const COLORS = [
   "gray",
 ];
 
-export const getPTag = (repoId: string) => {
+export const getPTag = () => {
   return `<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="/bond-media-main-logo.svg" alt="Bond Media Studio Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="#" style="color: #fff;text-decoration: underline;" target="_blank" >Bond Media Studio</a></p>`;
 };

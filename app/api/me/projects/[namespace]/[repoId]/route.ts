@@ -72,7 +72,7 @@ export async function GET(
     }
     let html = await response.text();
     // remove the last p tag including this url https://enzostvs-deepsite.hf.space
-    html = html.replace(getPTag(namespace + "/" + repoId), "");
+    html = html.replace(getPTag(), "");
 
     return NextResponse.json(
       {
@@ -138,7 +138,7 @@ export async function PUT(
     name: `${namespace}/${repoId}`,
   };
 
-  const newHtml = html.replace(/<\/body>/, `${getPTag(repo.name)}</body>`);
+  const newHtml = html.replace(/<\/body>/, `${getPTag()}</body>`);
   const file = new File([newHtml], "index.html", { type: "text/html" });
   await uploadFile({
     repo,
