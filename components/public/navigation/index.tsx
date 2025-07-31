@@ -31,7 +31,7 @@ const navigationLinks = [
 ];
 
 export default function Navigation() {
-  const { openLoginWindow, user } = useUser();
+  const { user } = useUser();
   const [hash, setHash] = useState("");
 
   const selectorRef = useRef<HTMLDivElement>(null);

@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { toast } from "sonner";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { MdSave } from "react-icons/md";
 import { Rocket } from "lucide-react";
 
-import SpaceIcon from "@/assets/space.svg";
 import BondLogo from "@/assets/Bond-Media-logo.svg";
 import Loading from "@/components/loading";
 import { Button } from "@/components/ui/button";
@@ -16,18 +13,15 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
-import { api } from "@/lib/api";
 import { LoginModal } from "@/components/login-modal";
 import { useUser } from "@/hooks/useUser";
 
 export function DeployButton({
   html,
-  prompts,
 }: {
   html: string;
   prompts: string[];
 }) {
-  const router = useRouter();
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);

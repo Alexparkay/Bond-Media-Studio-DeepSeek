@@ -19,7 +19,7 @@ export const LoginModal = ({
   title?: string;
   description?: string;
 }) => {
-  const { openLoginWindow } = useUser();
+  const { } = useUser();
   const [, setStorage] = useLocalStorage("html_content");
   const handleClick = async () => {
     if (html && !isTheSameHtml(html)) {

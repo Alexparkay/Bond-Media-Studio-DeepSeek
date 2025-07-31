@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/select";
 import { useMemo } from "react";
 import { useUpdateEffect } from "react-use";
-import Image from "next/image";
 
 export function Settings({
   open,

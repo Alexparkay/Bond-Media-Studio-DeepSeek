@@ -38,7 +38,7 @@ export function InviteFriends() {
               />
             </div>
             <p className="text-xl font-semibold text-neutral-950 max-w-[280px]">
-              Explore Bond Media's Premium Websites
+              Explore Bond Media&apos;s Premium Websites
             </p>
             <p className="text-sm text-neutral-500 mt-2 max-w-sm">
               Discover our portfolio of custom, bespoke websites and professional web solutions.

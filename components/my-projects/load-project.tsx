@@ -15,20 +15,16 @@ import {
 import Loading from "@/components/loading";
 import { Input } from "../ui/input";
 import { toast } from "sonner";
-import { api } from "@/lib/api";
 import { useUser } from "@/hooks/useUser";
 import { LoginModal } from "../login-modal";
-import { useRouter } from "next/navigation";
 
 export const LoadProject = ({
   fullXsBtn = false,
-  onSuccess,
 }: {
   fullXsBtn?: boolean;
   onSuccess: (project: Project) => void;
 }) => {
   const { user } = useUser();
-  const router = useRouter();
 
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [open, setOpen] = useState(false);
