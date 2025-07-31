@@ -80,7 +80,7 @@ export function Footer({
         >
           <Button size="sm" variant="ghost">
             <SparkleIcon className="size-3.5" />
-            <span className="max-lg:hidden">DeepSite Gallery</span>
+            <span className="max-lg:hidden">Bond Media Studio Gallery</span>
           </Button>
         </a>
         <a

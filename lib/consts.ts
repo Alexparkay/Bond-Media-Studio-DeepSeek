@@ -8,10 +8,10 @@ export const defaultHTML = `<!DOCTYPE html>
   </head>
   <body class="flex justify-center items-center h-screen overflow-hidden bg-white font-sans text-center px-6">
     <div class="w-full">
-      <span class="text-xs rounded-full mb-2 inline-block px-2 py-1 border border-amber-500/15 bg-amber-500/15 text-amber-500">🔥 New version dropped!</span>
-      <h1 class="text-4xl lg:text-6xl font-bold font-sans">
-        <span class="text-2xl lg:text-4xl text-gray-400 block font-medium">I'm ready to work,</span>
-        Ask me anything.
+      <img src="/bond-media-main-logo.svg" alt="Bond Media Studio" class="mx-auto w-auto z-10 relative" style="height: 400px; margin-top: -20px; margin-bottom: -100px;" />
+      <h1 class="text-4xl lg:text-6xl font-bold font-sans relative z-20" style="margin-top: -120px;">
+        <span class="text-2xl lg:text-4xl text-gray-400 block font-medium">We build bespoke premium websites,</span>
+        Tell us your vision.
       </h1>
     </div>
       <img src="https://enzostvs-deepsite.hf.space/arrow.svg" class="absolute bottom-8 left-0 w-[100px] transform rotate-[30deg]" />

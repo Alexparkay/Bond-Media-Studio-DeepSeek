@@ -23,40 +23,40 @@ const ptSans = PT_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "DeepSite | Build with AI ✨",
+  title: "Bond Media Studio | Build with AI ✨",
   description:
-    "DeepSite is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with DeepSite and enjoy the magic of AI.",
+    "Bond Media Studio is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with Bond Media Studio and enjoy the magic of AI.",
   openGraph: {
-    title: "DeepSite | Build with AI ✨",
+    title: "Bond Media Studio | Build with AI ✨",
     description:
-      "DeepSite is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with DeepSite and enjoy the magic of AI.",
+      "Bond Media Studio is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with Bond Media Studio and enjoy the magic of AI.",
     url: "https://deepsite.hf.co",
-    siteName: "DeepSite",
+    siteName: "Bond Media Studio",
     images: [
       {
         url: "https://deepsite.hf.co/banner.png",
         width: 1200,
         height: 630,
-        alt: "DeepSite Open Graph Image",
+        alt: "Bond Media Studio Open Graph Image",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DeepSite | Build with AI ✨",
+    title: "Bond Media Studio | Build with AI ✨",
     description:
-      "DeepSite is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with DeepSite and enjoy the magic of AI.",
+      "Bond Media Studio is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with Bond Media Studio and enjoy the magic of AI.",
     images: ["https://deepsite.hf.co/banner.png"],
   },
   appleWebApp: {
     capable: true,
-    title: "DeepSite",
+    title: "Bond Media Studio",
     statusBarStyle: "black-translucent",
   },
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 };
 
