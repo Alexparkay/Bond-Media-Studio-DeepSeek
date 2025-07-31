@@ -1,22 +1,22 @@
 ---
-title: DeepSite v2
-emoji: 🐳
+title: Bond Media Studio
+emoji: 🎨
 colorFrom: blue
 colorTo: blue
 sdk: docker
 pinned: true
 app_port: 3000
 license: mit
-short_description: Generate any application with DeepSeek
+short_description: Create stunning websites with AI-powered Bond Media Studio
 models:
   - deepseek-ai/DeepSeek-V3-0324
   - deepseek-ai/DeepSeek-R1-0528
 ---
 
-# DeepSite 🐳
+# Bond Media Studio 🎨
 
-DeepSite is a coding platform powered by DeepSeek AI, designed to make coding smarter and more efficient. Tailored for developers, data scientists, and AI engineers, it integrates generative AI into your coding projects to enhance creativity and productivity.
+Bond Media Studio is an AI-powered website creation platform designed to make professional web development accessible to everyone. Create stunning, responsive websites in seconds using natural language prompts - no coding experience required.
 
 ## How to use it locally
 
-Follow [this discussion](https://huggingface.co/spaces/enzostvs/deepsite/discussions/74)
+Contact Bond Media Studio support for local installation instructions.

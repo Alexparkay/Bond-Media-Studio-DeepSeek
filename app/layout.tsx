@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     title: "Bond Media Studio | Build with AI ✨",
     description:
       "Bond Media Studio is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with Bond Media Studio and enjoy the magic of AI.",
-    url: "https://deepsite.hf.co",
+    url: "https://bondmediastudio.com",
     siteName: "Bond Media Studio",
     images: [
       {
-        url: "https://deepsite.hf.co/banner.png",
+        url: "https://bondmediastudio.com/banner.png",
         width: 1200,
         height: 630,
         alt: "Bond Media Studio Open Graph Image",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Bond Media Studio | Build with AI ✨",
     description:
       "Bond Media Studio is a web development tool that helps you build websites with AI, no code required. Let's deploy your website with Bond Media Studio and enjoy the magic of AI.",
-    images: ["https://deepsite.hf.co/banner.png"],
+    images: ["https://bondmediastudio.com/banner.png"],
   },
   appleWebApp: {
     capable: true,
@@ -92,7 +92,7 @@ export default async function RootLayout({
     <html lang="en">
       <Script
         defer
-        data-domain="deepsite.hf.co"
+        data-domain="bondmediastudio.com"
         src="https://plausible.io/js/script.js"
       ></Script>
       <body

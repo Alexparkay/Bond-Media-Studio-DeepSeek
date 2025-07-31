@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CheckCheck } from "lucide-react";
 import { isTheSameHtml } from "@/lib/compare-html-diff";
+import { toast } from "sonner";
+import Image from "next/image";
+import BondLogo from "@/assets/Bond-Media-logo.svg";
 
 export const ProModal = ({
   open,
@@ -18,7 +21,9 @@ export const ProModal = ({
     if (!isTheSameHtml(html)) {
       setStorage(html);
     }
-    window.open("https://huggingface.co/subscribe/pro?from=DeepSite", "_blank");
+    // Demo mode - subscription functionality disabled
+    // window.open("https://huggingface.co/subscribe/pro?from=DeepSite", "_blank");
+    toast.info("Subscription coming soon! This feature will be available in the full version.");
     onClose(false);
   };
   return (
@@ -26,43 +31,41 @@ export const ProModal = ({
       <DialogContent className="sm:max-w-lg lg:!p-8 !rounded-3xl !bg-white !border-neutral-100">
         <DialogTitle className="hidden" />
         <main className="flex flex-col items-start text-left relative pt-2">
-          <div className="flex items-center justify-start -space-x-4 mb-5">
-            <div className="size-14 rounded-full bg-pink-200 shadow-2xs flex items-center justify-center text-3xl opacity-50">
-              🚀
-            </div>
-            <div className="size-16 rounded-full bg-amber-200 shadow-2xl flex items-center justify-center text-4xl z-2">
-              🤩
-            </div>
-            <div className="size-14 rounded-full bg-sky-200 shadow-2xs flex items-center justify-center text-3xl opacity-50">
-              🥳
-            </div>
+          <div className="flex items-center justify-center mb-5">
+            <Image 
+              src={BondLogo} 
+              alt="Bond Media Studio Logo" 
+              width={120} 
+              height={40}
+              className="w-30 h-10"
+            />
           </div>
           <h2 className="text-2xl font-bold text-neutral-950">
-            Only $9 to enhance your possibilities
+            Upgrade to Bond Media Studio Pro
           </h2>
           <p className="text-neutral-500 text-base mt-2 max-w-sm">
-            It seems like you have reached the monthly free limit of Bond Media Studio.
+            Unlock unlimited website creation with Bond Media Studio Pro.
           </p>
           <hr className="bg-neutral-200 w-full max-w-[150px] my-6" />
           <p className="text-lg mt-3 text-neutral-900 font-semibold">
-            Upgrade to a <ProTag className="mx-1" /> Account, and unlock your
-            Bond Media Studio high quota access ⚡
+            Upgrade to <ProTag className="mx-1" /> and unlock unlimited
+            website creation with Bond Media Studio ⚡
           </p>
           <ul className="mt-3 space-y-1 text-neutral-500">
             <li className="text-sm text-neutral-500 space-x-2 flex items-center justify-start gap-2 mb-3">
-              You&apos;ll also unlock some Hugging Face PRO features, like:
+              You&apos;ll unlock amazing Bond Media Studio Pro features:
             </li>
             <li className="text-sm space-x-2 flex items-center justify-start gap-2">
               <CheckCheck className="text-emerald-500 size-4" />
-              Get acces to thousands of AI app (ZeroGPU) with high quota
+              Create unlimited websites with premium templates
             </li>
             <li className="text-sm space-x-2 flex items-center justify-start gap-2">
               <CheckCheck className="text-emerald-500 size-4" />
-              Get exclusive early access to new features and updates
+              Access to premium website templates and themes
             </li>
             <li className="text-sm space-x-2 flex items-center justify-start gap-2">
               <CheckCheck className="text-emerald-500 size-4" />
-              Get free credits across all Inference Providers
+              Priority support and advanced customization options
             </li>
             <li className="text-sm text-neutral-500 space-x-2 flex items-center justify-start gap-2 mt-3">
               ... and lots more!
@@ -74,7 +77,7 @@ export const ProModal = ({
             className="w-full !text-base !h-11 mt-8"
             onClick={handleProClick}
           >
-            Subscribe to PRO ($9/month)
+            Upgrade to Pro (Coming Soon)
           </Button>
         </main>
       </DialogContent>

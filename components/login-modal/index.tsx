@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useUser } from "@/hooks/useUser";
 import { isTheSameHtml } from "@/lib/compare-html-diff";
+import Image from "next/image";
+import BondLogo from "@/assets/Bond-Media-logo.svg";
 
 export const LoginModal = ({
   open,
   html,
   onClose,
   title = "Log In to use Bond Media Studio for free",
-  description = "Log In through your Hugging Face account to continue using Bond Media Studio and increase your monthly free limit.",
+  description = "Log In through Bond Media Studio to continue creating amazing websites and unlock additional features.",
 }: {
   open: boolean;
   html?: string;
@@ -23,7 +25,8 @@ export const LoginModal = ({
     if (html && !isTheSameHtml(html)) {
       setStorage(html);
     }
-    openLoginWindow();
+    // Login functionality disabled for demo
+    // openLoginWindow();
     onClose(false);
   };
   return (
@@ -31,16 +34,14 @@ export const LoginModal = ({
       <DialogContent className="sm:max-w-lg lg:!p-8 !rounded-3xl !bg-white !border-neutral-100">
         <DialogTitle className="hidden" />
         <main className="flex flex-col items-start text-left relative pt-2">
-          <div className="flex items-center justify-start -space-x-4 mb-5">
-            <div className="size-14 rounded-full bg-pink-200 shadow-2xs flex items-center justify-center text-3xl opacity-50">
-              💪
-            </div>
-            <div className="size-16 rounded-full bg-amber-200 shadow-2xl flex items-center justify-center text-4xl z-2">
-              😎
-            </div>
-            <div className="size-14 rounded-full bg-sky-200 shadow-2xs flex items-center justify-center text-3xl opacity-50">
-              🙌
-            </div>
+          <div className="flex items-center justify-center mb-5">
+            <Image 
+              src={BondLogo} 
+              alt="Bond Media Studio Logo" 
+              width={120} 
+              height={40}
+              className="w-30 h-10"
+            />
           </div>
           <p className="text-2xl font-bold text-neutral-950">{title}</p>
           <p className="text-neutral-500 text-base mt-2 max-w-sm">

@@ -22,8 +22,8 @@ export const FollowUpTooltip = () => {
         </header>
         <main className="p-4">
           <p className="text-neutral-300 text-sm">
-            Using the Diff-Patch system, allow DeepSite to intelligently update
-            your project without rewritting the entire codebase.
+            Using the Diff-Patch system, allow Bond Media Studio to intelligently update
+            your website without rewriting the entire codebase.
           </p>
           <p className="text-neutral-500 text-sm mt-2">
             This means faster updates, less data usage, and a more efficient

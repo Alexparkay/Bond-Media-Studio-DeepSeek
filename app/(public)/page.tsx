@@ -6,13 +6,13 @@ export default function Home() {
     <>
       <header className="container mx-auto pt-20 px-6 relative flex flex-col items-center justify-center text-center">
         <div className="rounded-full border border-neutral-100/10 bg-neutral-100/5 text-xs text-neutral-300 px-3 py-1 max-w-max mx-auto mb-2">
-          ✨ DeepSite Public Beta
+          ✨ Bond Media Studio
         </div>
         <h1 className="text-8xl font-semibold text-white font-mono max-w-4xl">
-          Code your website with AI in seconds
+          Create stunning websites with AI in seconds
         </h1>
         <p className="text-2xl text-neutral-300/80 mt-4 text-center max-w-2xl">
-          Vibe Coding has never been so easy.
+          Professional website creation has never been so easy.
         </p>
         <div className="mt-14 max-w-2xl w-full mx-auto">
           <AskAi />
@@ -31,7 +31,7 @@ export default function Home() {
       </div>
       <div id="deploy" className="h-screen flex items-center justify-center">
         <h1 className="text-7xl font-extrabold text-white font-mono">
-          Deploy your website in seconds
+          Deploy your website with Bond Media Studio
         </h1>
       </div>
       <div id="features" className="h-screen flex items-center justify-center">

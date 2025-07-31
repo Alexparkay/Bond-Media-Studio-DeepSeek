@@ -71,7 +71,7 @@ export function Settings({
           align="center"
         >
           <header className="flex items-center justify-center text-sm px-4 py-3 border-b gap-2 bg-neutral-950 border-neutral-800 font-semibold text-neutral-200">
-            Customize Settings
+            Customize Bond Media Studio to your liking
           </header>
           <main className="px-4 pt-5 pb-6 space-y-5">
             {error !== "" && (
@@ -81,15 +81,15 @@ export function Settings({
             )}
             <label className="block">
               <p className="text-neutral-300 text-sm mb-2.5">
-                Choose an AI model
+                Choose how Bond Media Studio creates your website
               </p>
               <Select defaultValue={model} onValueChange={onModelChange}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select an AI model" />
+                  <SelectValue placeholder="Choose your website creation style" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>AI models</SelectLabel>
+                    <SelectLabel>Website Creation Options</SelectLabel>
                     {MODELS.map(
                       ({
                         value,
@@ -131,11 +131,11 @@ export function Settings({
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-neutral-300 text-sm mb-1.5">
-                    Use auto-provider
+                    Use auto-optimization
                   </p>
                   <p className="text-xs text-neutral-400/70">
-                    We&apos;ll automatically select the best provider for you
-                    based on your prompt.
+                    We&apos;ll automatically optimize your website creation
+                    based on your requirements.
                   </p>
                 </div>
                 <div
@@ -168,7 +168,7 @@ export function Settings({
               </div>
               <label className="block">
                 <p className="text-neutral-300 text-sm mb-2">
-                  Inference Provider
+                  Website Creation Engine
                 </p>
                 <div className="grid grid-cols-2 gap-1.5">
                   {modelAvailableProviders.map((id: string) => (
@@ -180,13 +180,6 @@ export function Settings({
                         onChange(id);
                       }}
                     >
-                      <Image
-                        src={`/providers/${id}.svg`}
-                        alt={PROVIDERS[id as keyof typeof PROVIDERS].name}
-                        className="size-5 mr-2"
-                        width={20}
-                        height={20}
-                      />
                       {PROVIDERS[id as keyof typeof PROVIDERS].name}
                       {id === provider && (
                         <RiCheckboxCircleFill className="ml-2 size-4 text-blue-500" />

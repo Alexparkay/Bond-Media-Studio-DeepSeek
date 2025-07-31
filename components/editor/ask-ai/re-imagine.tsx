@@ -47,7 +47,7 @@ export function ReImagine({
       setOpen(false);
       setUrl("");
       onRedesign(response.data.markdown);
-      toast.success("DeepSite is redesigning your site! Let him cook... 🔥");
+      toast.success("Bond Media Studio is redesigning your site! Let our AI work its magic... 🔥");
     } else {
       toast.error(response?.data?.error || "Failed to redesign the site.");
     }

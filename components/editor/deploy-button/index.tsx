@@ -7,6 +7,7 @@ import { MdSave } from "react-icons/md";
 import { Rocket } from "lucide-react";
 
 import SpaceIcon from "@/assets/space.svg";
+import BondLogo from "@/assets/Bond-Media-logo.svg";
 import Loading from "@/components/loading";
 import { Button } from "@/components/ui/button";
 import {
@@ -37,11 +38,19 @@ export function DeployButton({
 
   const createSpace = async () => {
     if (!config.title) {
-      toast.error("Please enter a title for your space.");
+      toast.error("Please enter a title for your project.");
       return;
     }
+    
+    // Demo mode - functionality disabled
     setLoading(true);
-
+    setTimeout(() => {
+      setLoading(false);
+      toast.info("Project deployment coming soon! This feature will be available in the full version.");
+      setOpen(false);
+    }, 2000);
+    
+    /* Original functionality disabled for demo
     try {
       const res = await api.post("/me/projects", {
         title: config.title,
@@ -51,13 +60,14 @@ export function DeployButton({
       if (res.data.ok) {
         router.push(`/projects/${res.data.path}?deploy=true`);
       } else {
-        toast.error(res?.data?.error || "Failed to create space");
+        toast.error(res?.data?.error || "Failed to create project");
       }
     } catch (err: any) {
       toast.error(err.response?.data?.error || err.message);
     } finally {
       setLoading(false);
     }
+    */
   };
 
   // TODO add a way to do not allow people to deploy if the html is broken.
@@ -83,33 +93,27 @@ export function DeployButton({
               align="end"
             >
               <header className="bg-neutral-50 p-6 border-b border-neutral-200/60">
-                <div className="flex items-center justify-center -space-x-4 mb-3">
-                  <div className="size-9 rounded-full bg-amber-200 shadow-2xs flex items-center justify-center text-xl opacity-50">
-                    🚀
-                  </div>
-                  <div className="size-11 rounded-full bg-red-200 shadow-2xl flex items-center justify-center z-2">
-                    <Image
-                      src={SpaceIcon}
-                      alt="Space Icon"
-                      className="size-7"
-                    />
-                  </div>
-                  <div className="size-9 rounded-full bg-sky-200 shadow-2xs flex items-center justify-center text-xl opacity-50">
-                    👻
-                  </div>
+                <div className="flex items-center justify-center mb-3">
+                  <Image 
+                    src={BondLogo} 
+                    alt="Bond Media Studio Logo" 
+                    width={120} 
+                    height={40}
+                    className="w-30 h-10"
+                  />
                 </div>
                 <p className="text-xl font-semibold text-neutral-950">
-                  Deploy as Space!
+                  Deploy your Website!
                 </p>
                 <p className="text-sm text-neutral-500 mt-1.5">
-                  Save and Deploy your project to a Space on the Hub. Spaces are
-                  a way to share your project with the world.
+                  Save and deploy your website project with Bond Media Studio.
+                  Share your amazing website with the world.
                 </p>
               </header>
               <main className="space-y-4 p-6">
                 <div>
                   <p className="text-sm text-neutral-700 mb-2">
-                    Choose a title for your space:
+                    Choose a title for your website:
                   </p>
                   <Input
                     type="text"
@@ -131,7 +135,7 @@ export function DeployButton({
                     className="relative w-full"
                     disabled={loading}
                   >
-                    Deploy Space <Rocket className="size-4" />
+                    Deploy Website <Rocket className="size-4" />
                     {loading && (
                       <Loading className="ml-2 size-4 animate-spin" />
                     )}
@@ -165,7 +169,7 @@ export function DeployButton({
           onClose={() => setOpen(false)}
           html={html}
           title="Log In to save your Project"
-          description="Log In through your Hugging Face account to save your project and increase your monthly free limit."
+          description="Log In through Bond Media Studio to save your project and unlock additional features."
         />
       </div>
     </div>

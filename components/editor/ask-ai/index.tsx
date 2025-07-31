@@ -9,7 +9,7 @@ import { FaStopCircle } from "react-icons/fa";
 
 import ProModal from "@/components/pro-modal";
 import { Button } from "@/components/ui/button";
-import { MODELS } from "@/lib/providers";
+import { MODELS, PROVIDERS } from "@/lib/providers";
 import { HtmlHistory } from "@/types";
 import { InviteFriends } from "@/components/invite-friends";
 import { Settings } from "@/components/editor/ask-ai/settings";
@@ -66,6 +66,25 @@ export function AskAI({
   const [isThinking, setIsThinking] = useState(true);
   const [controller, setController] = useState<AbortController | null>(null);
   const [isFollowUp, setIsFollowUp] = useState(true);
+
+  // Validate and reset cached localStorage values if they're invalid
+  useUpdateEffect(() => {
+    const validProviders = Object.keys(PROVIDERS);
+    const validModels = MODELS.map(m => m.value);
+    
+    // Check if current provider is valid, if not reset to "auto"
+    if (provider !== "auto" && !validProviders.includes(provider as string)) {
+      console.log('Resetting invalid provider:', provider);
+      setProvider("auto");
+    }
+    
+    // Check if current model is valid, if not reset to first model
+    if (!validModels.includes(model as string)) {
+      console.log('Resetting invalid model:', model);
+      setModel(MODELS[0].value);
+    }
+  }, []);
+
 
   const selectedModel = useMemo(() => {
     return MODELS.find((m: { value: string }) => m.value === model);
@@ -407,7 +426,7 @@ export function AskAI({
                   align="start"
                   className="bg-neutral-950 text-xs text-neutral-200 py-1 px-2 rounded-md -translate-y-0.5"
                 >
-                  Select an element on the page to ask DeepSite edit it
+                  Select an element on the page to ask Bond Media Studio edit it
                   directly.
                 </TooltipContent>
               </Tooltip>

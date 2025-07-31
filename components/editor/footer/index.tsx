@@ -8,6 +8,8 @@ import { MdAdd } from "react-icons/md";
 import { History } from "@/components/editor/history";
 import { UserMenu } from "@/components/user-menu";
 import { useUser } from "@/hooks/useUser";
+import { LoginModal } from "@/components/login-modal";
+import { useState } from "react";
 
 const DEVICES = [
   {
@@ -36,6 +38,8 @@ export function Footer({
   setDevice: React.Dispatch<React.SetStateAction<"desktop" | "mobile">>;
 }) {
   const { user } = useUser();
+  const [showGalleryLogin, setShowGalleryLogin] = useState(false);
+  const [showHelpLogin, setShowHelpLogin] = useState(false);
 
   const handleRefreshIframe = () => {
     if (iframeRef?.current) {
@@ -74,24 +78,22 @@ export function Footer({
         )}
       </div>
       <div className="flex justify-end items-center gap-2.5">
-        <a
-          href="https://huggingface.co/spaces/victor/deepsite-gallery"
-          target="_blank"
+        <Button 
+          size="sm" 
+          variant="ghost"
+          onClick={() => setShowGalleryLogin(true)}
         >
-          <Button size="sm" variant="ghost">
-            <SparkleIcon className="size-3.5" />
-            <span className="max-lg:hidden">Bond Media Studio Gallery</span>
-          </Button>
-        </a>
-        <a
-          target="_blank"
-          href="https://huggingface.co/spaces/enzostvs/deepsite/discussions/157"
+          <SparkleIcon className="size-3.5" />
+          <span className="max-lg:hidden">Bond Media Studio Gallery</span>
+        </Button>
+        <Button 
+          size="sm" 
+          variant="outline"
+          onClick={() => setShowHelpLogin(true)}
         >
-          <Button size="sm" variant="outline">
-            <HelpCircle className="size-3.5" />
-            <span className="max-lg:hidden">Help</span>
-          </Button>
-        </a>
+          <HelpCircle className="size-3.5" />
+          <span className="max-lg:hidden">Help</span>
+        </Button>
         <Button size="sm" variant="outline" onClick={handleRefreshIframe}>
           <RefreshCcw className="size-3.5" />
           <span className="max-lg:hidden">Refresh Preview</span>
@@ -122,6 +124,20 @@ export function Footer({
           ))}
         </div>
       </div>
+      
+      {/* Login Modals */}
+      <LoginModal
+        open={showGalleryLogin}
+        onClose={setShowGalleryLogin}
+        title="Log In to access Bond Media Studio Gallery"
+        description="Log In through Bond Media Studio to browse our gallery of amazing website templates and examples."
+      />
+      <LoginModal
+        open={showHelpLogin}
+        onClose={setShowHelpLogin}
+        title="Log In to get Help"
+        description="Log In through Bond Media Studio to access our help center and support resources."
+      />
     </footer>
   );
 }

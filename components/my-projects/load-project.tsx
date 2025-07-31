@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { Import } from "lucide-react";
+import Image from "next/image";
+import BondLogo from "@/assets/Bond-Media-logo.svg";
 
 import { Project } from "@/types";
 import { Button } from "@/components/ui/button";
@@ -34,9 +36,9 @@ export const LoadProject = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const checkIfUrlIsValid = (url: string) => {
-    // should match a hugging face spaces URL like: https://huggingface.co/spaces/username/project or https://hf.co/spaces/username/project
+    // should match a Bond Media Studio project URL like: https://bondmediastudio.com/projects/username/project
     const urlPattern = new RegExp(
-      /^(https?:\/\/)?(huggingface\.co|hf\.co)\/spaces\/([\w-]+)\/([\w-]+)$/,
+      /^(https?:\/\/)?(bondmediastudio\.com)\/projects\/([\w-]+)\/([\w-]+)$/,
       "i"
     );
     return urlPattern.test(url);
@@ -49,13 +51,23 @@ export const LoadProject = ({
       return;
     }
     if (!checkIfUrlIsValid(url)) {
-      toast.error("Please enter a valid Hugging Face Spaces URL.");
+      toast.error("Please enter a valid Bond Media Studio project URL.");
       return;
     }
 
+    // Demo mode - functionality disabled
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      toast.info("Project import coming soon! This feature will be available in the full version.");
+      setOpen(false);
+      setUrl("");
+    }, 2000);
+
+    /* Original functionality disabled for demo
     const [username, namespace] = url
-      .replace("https://huggingface.co/spaces/", "")
-      .replace("https://hf.co/spaces/", "")
+      .replace("https://bondmediastudio.com/projects/", "")
+      .replace("https://bondmediastudio.com/projects/", "")
       .split("/");
 
     setIsLoading(true);
@@ -65,7 +77,6 @@ export const LoadProject = ({
       setOpen(false);
       setUrl("");
       onSuccess(response.data.project);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error?.response?.data?.redirect) {
         return router.push(error.response.data.redirect);
@@ -76,6 +87,7 @@ export const LoadProject = ({
     } finally {
       setIsLoading(false);
     }
+    */
   };
 
   return (
@@ -104,7 +116,7 @@ export const LoadProject = ({
             open={openLoginModal}
             onClose={setOpenLoginModal}
             title="Log In to load your Project"
-            description="Log In through Hugging Face to load an existing project and increase your free limit!"
+            description="Log In through Bond Media Studio to load an existing project and unlock additional features!"
           />
         </>
       ) : (
@@ -125,33 +137,31 @@ export const LoadProject = ({
           <DialogContent className="sm:max-w-md !p-0 !rounded-3xl !bg-white !border-neutral-100 overflow-hidden text-center">
             <DialogTitle className="hidden" />
             <header className="bg-neutral-50 p-6 border-b border-neutral-200/60">
-              <div className="flex items-center justify-center -space-x-4 mb-3">
-                <div className="size-11 rounded-full bg-pink-200 shadow-2xs flex items-center justify-center text-2xl opacity-50">
-                  🎨
-                </div>
-                <div className="size-13 rounded-full bg-amber-200 shadow-2xl flex items-center justify-center text-3xl z-2">
-                  🥳
-                </div>
-                <div className="size-11 rounded-full bg-sky-200 shadow-2xs flex items-center justify-center text-2xl opacity-50">
-                  💎
-                </div>
+              <div className="flex items-center justify-center mb-3">
+                <Image 
+                  src={BondLogo} 
+                  alt="Bond Media Studio Logo" 
+                  width={120} 
+                  height={40}
+                  className="w-30 h-10"
+                />
               </div>
               <p className="text-2xl font-semibold text-neutral-950">
                 Import a Project
               </p>
               <p className="text-base text-neutral-500 mt-1.5">
-                Enter the URL of your Hugging Face Space to import an existing
-                project.
+                Enter the URL of your Bond Media Studio project to import an existing
+                website.
               </p>
             </header>
             <main className="space-y-4 px-9 pb-9 pt-2">
               <div>
                 <p className="text-sm text-neutral-700 mb-2">
-                  Enter your Hugging Face Space
+                  Enter your Bond Media Studio Project
                 </p>
                 <Input
                   type="text"
-                  placeholder="https://huggingface.com/spaces/username/project"
+                  placeholder="https://bondmediastudio.com/projects/username/project"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   onBlur={(e) => {
@@ -184,10 +194,10 @@ export const LoadProject = ({
                         overlay={false}
                         className="ml-2 size-4 animate-spin"
                       />
-                      Fetching your Space...
+                      Fetching your Project...
                     </>
                   ) : (
-                    <>Import your Space</>
+                    <>Import your Project</>
                   )}
                 </Button>
               </div>

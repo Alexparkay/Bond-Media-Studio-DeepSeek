@@ -90,11 +90,11 @@ export default function Navigation() {
           <Image
             src={Logo}
             className="w-9 mr-1"
-            alt="DeepSite Logo"
+            alt="Bond Media Studio Logo"
             width={64}
             height={64}
           />
-          <p className="font-sans text-white text-xl font-bold">DeepSite</p>
+          <p className="font-sans text-white text-xl font-bold">Bond Media Studio</p>
         </Link>
         <ul className="items-center justify-center gap-6 hidden">
           {navigationLinks.map((link) => (
@@ -143,10 +143,10 @@ export default function Navigation() {
             <UserMenu className="!pl-3 !pr-4 !py-2 !h-auto !rounded-lg" />
           ) : (
             <>
-              <Button variant="link" size={"sm"} onClick={openLoginWindow}>
+              <Button variant="link" size={"sm"} onClick={() => {/* Login disabled for demo */}}>
                 Log In
               </Button>
-              <Button size={"sm"}>Sign Up</Button>
+              <Button size={"sm"} onClick={() => {/* Signup disabled for demo */}}>Sign Up</Button>
             </>
           )}
         </div>
